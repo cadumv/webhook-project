@@ -1,5 +1,5 @@
 tunnel: add5c674-eb88-4db2-92a8-cbb55bae9142
-credentials-file: ./add5c674-eb88-4db2-92a8-cbb55bae9142.json
+credentials-file: /etc/cloudflared/add5c674-eb88-4db2-92a8-cbb55bae9142.json
 
 protocol: http2
 
