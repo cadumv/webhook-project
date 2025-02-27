@@ -1,12 +1,18 @@
-# Usa a imagem oficial do Cloudflare Tunnel
 FROM cloudflare/cloudflared:latest
 
-# Define o diretório de trabalho para garantir consistência
 WORKDIR /etc/cloudflared
 
-# Copia o arquivo de configuração e o arquivo de credenciais para dentro do container
+# Copia os arquivos de configuração e credenciais
 COPY config.yml .
 COPY add5c674-eb88-4db2-92a8-cbb55bae9142.json .
 
-# Comando para rodar o tunnel usando o config.yml (que referencia o arquivo de credenciais com o nome original)
-CMD ["tunnel", "--config", "config.yml", "run"]
+# Copia o script de keep-alive e o servidor dummy (assumindo que server.js está no mesmo diretório do Dockerfile)
+COPY server.js /app/server.js
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
+
+# Define o diretório de trabalho para o script
+WORKDIR /app
+
+# Comando de inicialização: inicia o tunnel e o servidor dummy
+CMD ["/app/start.sh"]
