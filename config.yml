@@ -1,0 +1,11 @@
+tunnel: add5c674-eb88-4db2-92a8-cbb55bae9142
+credentials-file: ./add5c674-eb88-4db2-92a8-cbb55bae9142.json
+
+protocol: http2
+
+ingress:
+  - hostname: webhook.anticriseacademy.com.br
+    service: https://webhook-api-little-frog-2853.fly.dev
+  - hostname: whatsapp.anticriseacademy.com.br
+    service: https://webhook-api-little-frog-2853.fly.dev
+  - service: http_status:404
