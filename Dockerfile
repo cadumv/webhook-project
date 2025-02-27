@@ -15,4 +15,5 @@ COPY start.sh /app/start.sh
 WORKDIR /app
 
 # Comando de inicialização: inicia o tunnel e o servidor dummy
+ENTRYPOINT []
 CMD ["/app/start.sh"]
